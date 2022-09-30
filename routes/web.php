@@ -15,5 +15,49 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () 
 {
-    return view('welcome');
+    $user = 'Adios';
+    return view('welcome',['name' => $user]);
 });
+
+Route::get('/al', function ()
+{
+    return view('al');
+});
+
+Route::get('/array', function ()
+{
+    $task = [
+        "Uno",
+        "Dos",
+        "Tres"
+    ];
+    $asd = "Cucc";
+    return view('array')-> with(['asd' => $asd,'task' => $task ]);
+});
+
+Route::get('/url', function ()
+{
+    return view('url', [
+    'ertek' => request('ertek'),
+    'adat' => request('adat'),
+    'alert' => '<script>alert("alert");</script>'
+    ]);
+});
+
+/*
+Route::get('/post/{post}', function ($post)
+{
+    $posts = [
+        "first_page" => "First page this is",
+        "second_page" => "Second page was this"
+    ];
+    if (!array_key_exists($post, $posts))
+    {
+        abort(404);
+    }
+    return view('post', [
+        'post' => $posts[$post] ?? "This page has been obliterated"
+    ]);
+});
+*/
+Route::get('/posts/{post}', [App\Http\Controllers\PostController::class, 'show']);

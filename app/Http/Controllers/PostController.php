@@ -6,12 +6,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class PostController extends Controller
 {
-    public function show($slug)
+    public function show($nev)
     {
-        //return view('post', compact('post'));
-        $post=\DB::table('posts')->where('slug',$slug)->first();
-        $s = DB::select('select * from posts');
-        //dd($s);
-        return view('post', compact('post'));
+        $search=\DB::table('diaks')->where('nev',$nev)->nev='joska';
+        $s = DB::select('select * from diaks');
+        //dd($search);
+        dd($s);
+        return view('diaks', compact('diaks'));
     }
 }

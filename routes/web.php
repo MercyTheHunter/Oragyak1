@@ -62,4 +62,6 @@ Route::get('/post/{post}', function ($post)
 */
 //Route::get('/posts/{post}', [App\Http\Controllers\PostController::class, 'show']);
 
-Route::get('{nev}', [App\Http\Controllers\PostController::class, 'show']);
+Route::get("{nev}", [App\Http\Controllers\PostController::class, 'show']);
+
+Route::get("/flights/{flight}", [App\Http\Controllers\FlightController::class, "show"]);

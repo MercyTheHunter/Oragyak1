@@ -13,14 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('diaks', function (Blueprint $table) {
-            $table->id()->automatic();
-            $table->string('nev');
-            $table->integer('hanyadik');
-            $table->string('szul_id');
-            $table->string('cim');
+        Schema::create('airlines', function (Blueprint $table) {
+            $table->id();
+            $table->string("name");
+            $table->string("residence");
             $table->timestamps();
-          });
+        });
     }
 
     /**
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('airlines');
     }
 };

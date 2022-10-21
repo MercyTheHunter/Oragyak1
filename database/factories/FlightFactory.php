@@ -24,7 +24,8 @@ class FlightFactory extends Factory
             "active" => $this->faker->numberBetween($min = 0, $max = 1),
             "delayed" => $this->faker->numberBetween($min = 0, $max = 1),
             "departed" => $this->faker->numberBetween($min = 0, $max = 1),
-            "arrived_at" => $this->faker->dateTimeBetween($startDate = '-30 years', $endDate = 'now', $timezone = null),
+            "arrived_at" => $this->faker->dateTime($max = 'now', $timezone = null),
+            "airlineid" => $this->faker->numberBetween($min = 1, $max = 25),
         ];
     }
 }

@@ -65,3 +65,7 @@ Route::get('/post/{post}', function ($post)
 Route::get("{nev}", [App\Http\Controllers\PostController::class, 'show']);
 
 Route::get("/flights/{flight}", [App\Http\Controllers\FlightController::class, "show"]);
+
+Route::get("/airlines/create", [App\Http\Controllers\AirlinesController::class, "postcreate"]);
+
+Route::post("/airlines", [App\Http\Controllers\AirlinesController::class, "store"]);
